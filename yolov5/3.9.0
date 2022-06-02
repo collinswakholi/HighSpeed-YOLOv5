@@ -1,0 +1,12 @@
+Collecting coremltools
+  Using cached coremltools-5.2.0.tar.gz (936 kB)
+Collecting onnx
+  Using cached onnx-1.11.0-cp39-cp39-win_amd64.whl (11.2 MB)
+Collecting onnx-simplifier
+  Using cached onnx-simplifier-0.3.8.tar.gz (14 kB)
+Collecting scikit-learn==0.19.2
+  Using cached scikit-learn-0.19.2.tar.gz (9.7 MB)
+Collecting tensorflow
+  Using cached tensorflow-2.8.0-cp39-cp39-win_amd64.whl (438.0 MB)
+Collecting tensorflowjs
+  Using cached tensorflowjs-3.15.0-py3-none-any.whl (77 kB)
