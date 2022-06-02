@@ -1,0 +1,25 @@
+cd C:\Users\Owner\Desktop\Perez_YOLO\yolov5
+conda activate perez
+
+######Train
+python train.py --img 512 --batch 16 --epochs 10 --data my_seeds.yaml --weights yolov5n.pt --project seeds --name train1 --hyp data/hyps/hyp.my_seed.yaml
+python train.py --img 512 --batch 5 --epochs 100 --data my_seeds.yaml --weights yolov5x.pt --project seeds --name train_100x_100 --hyp data/hyps/hyp.my_seed.yaml --optimizer Adam --patience 10
+
+nano = 48
+small = 32
+medium = 24
+large = 16
+extra large = 8
+
+###### Check Validation
+python val.py --weights seeds\train1\weights\best.pt --project seeds --name valx --data my_seeds.yaml --img 512
+
+###### Test
+python detect.py --weights seeds\train_100x_100\weights\best.pt --project seeds --name test_t --source ..\datasets\my_seed\images\test --img 512
+python detect.py --weights seeds\train_100n2\weights\best.pt --project seeds --name test_vid --source ..\video_fast_100fps.mp4 --img 512
+
+####### convert weights to .onnx, which are supported in opencv c++
+python export.py --weights seeds\train_100n2\weights\best.pt --include onnx --imgsz 512
+
+
+#pip install albumentations Cython pycocotools roboflow
